@@ -1,4 +1,6 @@
 class Book:
+    library_name = "Central Library"
+
     def __init__(self, title, author, available = True):
         self.title = title
         self.author = author
@@ -19,3 +21,9 @@ class Book:
     def return_book(self):
         self.available = True
         print(f"{self.title} has been returned.")
+
+    @classmethod
+    def change_library_name(cls, new_name):
+        cls.library_name = new_name
+
+   
