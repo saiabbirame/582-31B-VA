@@ -7,7 +7,10 @@ class Book:
         self.available = available
 
     def display_info(self):
-        print(f"{self.title} by {self.author} is Available: {self.available}")
+        print("Book Information and Status:")
+        print(f"Title: {self.title}")
+        print(f"Author: {self.author}")
+        print(f"Available: {self.available}")
 
     def borrow(self):
         if (self.available == False):
