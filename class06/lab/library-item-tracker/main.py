@@ -31,4 +31,11 @@ book2.borrow()
 print()
 
 # PART4
+print(Book.library_name)
+print()
 
+Book.change_library_name("Vanier College Library")
+print(Book.library_name)
+
+print(Book.is_valid_title("Automate the Boring Stuff with Python"))
+print(Book.is_valid_title(" "))
