@@ -44,3 +44,10 @@ print()
 
 # CHALLENGE 1
 Book.show_count()
+print()
+
+# CHALLENGE 2
+book3 = Book.from_string("Clean Code,Robert C. Martin,True")
+book3.display_info()
+print()
+

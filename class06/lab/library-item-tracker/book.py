@@ -33,6 +33,11 @@ class Book:
     def show_count(cls):
         print(f"Number of books: {cls.count}")
 
+    @classmethod
+    def from_string(cls, data):
+        title, author, available = data.split(",")
+        return cls(title, author, available)
+
     @staticmethod
     def is_valid_title(title):
         if(len(title.strip()) > 0):
