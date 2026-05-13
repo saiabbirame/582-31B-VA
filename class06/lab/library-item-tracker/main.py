@@ -36,6 +36,11 @@ print()
 
 Book.change_library_name("Vanier College Library")
 print(Book.library_name)
+print()
 
 print(Book.is_valid_title("Automate the Boring Stuff with Python"))
 print(Book.is_valid_title(" "))
+print()
+
+# CHALLENGE 1
+Book.show_count()
