@@ -2,16 +2,18 @@ class Book:
     library_name = "Central Library"
     count = 0
 
-    def __init__(self, title, author, available = True):
+    def __init__(self, title, author, genre, available = True):
         self.title = title
         self.author = author
         self.available = available
+        self.genre = genre
         Book.count += 1
 
     def display_info(self):
         print("Book Information and Status:")
         print(f"Title: {self.title}")
         print(f"Author: {self.author}")
+        print(f"Genre: {self.genre}")
         print(f"Available: {self.available}")
 
     def borrow(self):

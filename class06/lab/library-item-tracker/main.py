@@ -1,7 +1,7 @@
 from book import Book
 
-book1 = Book("The Cruel Prince", "Holly Black", True)
-book2 = Book("Atomic Habits", "James Clear", False)
+book1 = Book("The Cruel Prince", "Holly Black", "Fantasy", True)
+book2 = Book("Atomic Habits", "James Clear", "Self-Help", False)
 
 # PART2
 print(book1.title)
