@@ -1,4 +1,4 @@
-from enums import ShowStatus
+from core.enums import ShowStatus
 
 class MovieShow:
     def __init__(self, title, capacity, status):
