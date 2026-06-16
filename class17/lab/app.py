@@ -1,14 +1,6 @@
-from enum import Enum
-
-MAX_TICKETS_PER_BOOKING = 6
-
-class ShowStatus(Enum):
-    OPEN = "open"
-    SOLD_OUT = "sold_out"
-    CANCELLED = "cancelled"
-
-class InvalidBookingError(Exception):
-    pass
+from constants import MAX_TICKETS_PER_BOOKING
+from enums import ShowStatus
+from exceptions import InvalidBookingError
 
 class Customer:
     def __init__(self, name):

@@ -39,6 +39,7 @@ try:
 except ShowCancelledError as error:
     print("Error:", error)
 
+print()
 # Invalid: Sold Out show
 try:
     show3 = MovieShow("Michael", 8, ShowStatus.OPEN)
