@@ -39,22 +39,22 @@ class Album(db.Model):
     )
 
     year = db.Column(
-        db.String(4),
+        db.Integer,
         nullable=False
     )
 
     stock = db.Column(
         db.Integer,
         nullable=False,
-        default="0"
+        default=0
     )
 
     @property
     def in_stock(self):
-        return self.stock < 0
+        return self.stock > 0
 
     def __repr__(self):
-        return self.id
+        return f"<Album {self.title}>"
 
 
 with app.app_context():
@@ -63,40 +63,41 @@ with app.app_context():
 
 @app.route("/")
 def index():
-    genre = request.args.get("category", "")
+    genre = request.args.get("genre", "")
 
     if genre:
         albums = Album.query.filter_by(
-            artist=genre
+            genre=genre
         ).all()
     else:
-        albums = Album.query.all
+        albums = Album.query.all()
 
     return render_template(
         "index.html",
-        album=albums,
+        albums=albums,
         selected_genre=genre
     )
 
 
 @app.route(
     "/albums/add",
-    methods=["GET"]
+    methods=["GET", "POST"]
 )
 def add_album():
     if request.method == "POST":
         album = Album(
-            title=request.form["album_name"],
+            title=request.form["title"],
             artist=request.form["artist"],
             genre=request.form["genre"],
-            year=request.form["year"],
-            stock=request.form["stock"]
+            year=int(request.form["year"]),
+            stock=int(request.form["stock"])
         )
 
+        db.session.add(album)
         db.session.commit()
 
         return redirect(
-            url_for("albums")
+            url_for("index")
         )
 
     return render_template(
@@ -133,7 +134,7 @@ def edit_album(album_id):
 
 @app.route(
     "/albums/<int:album_id>/delete",
-    methods=["GET"]
+    methods=["POST"]
 )
 def delete_album(album_id):
     album = Album.query.get_or_404(album_id)
