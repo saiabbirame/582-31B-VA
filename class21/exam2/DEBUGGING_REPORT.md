@@ -13,3 +13,31 @@ I changed the configuration to `SQLALCHEMY_DATABASE_URI`, initialized the databa
 
 **Test:**
 I restarted the app. It started successfully and showed the local server URL. 
+
+## Bug 2 - Album model and display
+
+**File:**
+app.py
+
+**Problem:**
+The albums were not displaying because the model and query contained multiple mistakes.
+
+**Fix:**
+I changed they `year` column to an integer, changed the stock value to an integer, fixed the `in_stock` proeprty, updated the `__repr__()` method and changed `Album.query.all` to `Album.query.all()`.
+
+**Test:**
+I added an album and confirmed that it appeared on the home page.
+
+## Bug 3 - Edit album
+
+**File:**
+app.py and edit_album.html
+
+**Problem:**
+The edit page did not show the album information correctly and updating an album did not work because some form fiels and redirects were wrong.
+
+**Fix:**
+I changed the template to use the correct album attributes, fixed the stock field name, converted the year and stock values to integers, added `db.session.commit() and redirected back to the home page after updating.
+
+**Test:**
+I edited an album, changed the stock value and confirmed the updated information appeared on the home page.
