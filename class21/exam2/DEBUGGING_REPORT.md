@@ -55,3 +55,17 @@ I changed the delete route to use POST, added `db.session.commit()` after deleti
 
 **Test:**
 I deleted an album and confirmed it was removed from the database and no longer appeared on the home page after refreshing.
+
+## Bug 5 - Add album
+
+**File:**
+app.py and add_album.html
+
+**Problem:**
+The add album form did not work because it used the wrong request method, the form field names did not match the backend and the new album was not being added to the database correctly.
+
+**Fix:**
+I changed the form to use POST, matched the form field names with the backend, converted the year and stock values to integers, added `db.session.add(album)`, committed the changes and redirected back to the homepage.
+
+**Test:**
+I added an album and confirmed it appeared in the catalog.
