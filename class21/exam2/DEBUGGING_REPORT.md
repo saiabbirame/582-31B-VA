@@ -41,3 +41,17 @@ I changed the template to use the correct album attributes, fixed the stock fiel
 
 **Test:**
 I edited an album, changed the stock value and confirmed the updated information appeared on the home page.
+
+## Bug 4 - Delete album
+
+**File:**
+app.py and index.html
+
+**Problem:**
+Deleting an album did not work correctly because the delete route was missing a commit and the delete action needed to use a POST request.
+
+**Fix:**
+I changed the delete route to use POST, added `db.session.commit()` after deleting the album and updated the delete button to submit a form instead of using a link.
+
+**Test:**
+I deleted an album and confirmed it was removed from the database and no longer appeared on the home page after refreshing.

@@ -141,6 +141,7 @@ def delete_album(album_id):
     album = Album.query.get_or_404(album_id)
 
     db.session.delete(album)
+    db.session.commit()
 
     return redirect(
         url_for("index")
