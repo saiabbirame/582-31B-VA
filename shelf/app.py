@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from flask import Flask, flash, redirect, render_template, request, url_for
 from flask_login import ( LoginManager, current_user, login_required, login_user, logout_user )
 
-from models import db, User
+from models import db, User, Book
 
 load_dotenv()
 
@@ -106,3 +106,10 @@ def logout():
     flash("Logged out successfully.", "success")
 
     return redirect(url_for("login"))
+
+@app.route("/books")
+@login_required
+def books():
+    books = Book.query.filter_by(user_id=current_user.id).all()
+
+    return render_template("books.html", books=books)
