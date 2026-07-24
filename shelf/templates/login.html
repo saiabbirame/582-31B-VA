@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Log In | Shelf{% endblock %}
+
+{% block content %}
+<section class="form-container">
+    <h1>Log In</h1>
+
+    <form method="POST">
+        <label for="username">Username</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            value="{{ username or '' }}"
+            required
+        >
+
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            required
+        >
+
+        <button type="submit">Log In</button>
+    </form>
+
+    <p>
+        Don't have an account?
+        <a href="{{ url_for('register') }}">Register</a>
+    </p>
+</section>
+{% endblock %}

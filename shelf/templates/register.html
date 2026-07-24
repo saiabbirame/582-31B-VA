@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Register | Shelf{% endblock %}
+
+{% block content %}
+<section class="form-container">
+    <h1>Create an Account</h1>
+
+    <form method="POST">
+        <label for="username">Username</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            value="{{ username or '' }}"
+            required
+        >
+
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            value="{{ email or '' }}"
+            required
+        >
+
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            required
+        >
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="{{ url_for('login') }}">Log in</a>
+    </p>
+</section>
+{% endblock %}
