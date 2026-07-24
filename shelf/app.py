@@ -113,3 +113,52 @@ def books():
     books = Book.query.filter_by(user_id=current_user.id).all()
 
     return render_template("books.html", books=books)
+
+@app.route("/books/add", methods=["GET", "POST"])
+@login_required
+def add_book():
+    if request.method == "POST":
+        title = request.form["title"].strip()
+        author = request.form["author"].strip()
+        note = request.form["note"].strip()   
+        status = request.form["status"]
+
+        errors = []
+
+        if not title:
+            errors.append("Title is required.")
+
+        if not author:
+            errors.append("Author is required.")
+
+        if status not in ["Want to Read", "Reading", "Finished"]:
+            errors.append("Please select a valid status.")
+
+        if errors:
+            for error in errors:
+                flash(error, "error")
+
+            return render_template(
+                "book_form.html",
+                title=title,
+                author=author,
+                note=note,
+                status=status
+            )
+        
+        book = Book(
+            title=title,
+            author=author,
+            note=note,
+            status=status,
+            user_id=current_user.id
+        )
+
+        db.session.add(book)
+        db.session.commit()
+
+        flash("Book added successfully.", "success")
+
+        return redirect(url_for("books"))
+    
+    return render_template("book_form.html")
