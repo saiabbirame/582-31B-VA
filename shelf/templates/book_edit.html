@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Book | Shelf{% endblock %}
+
+{% block content %}
+<section class="form-container">
+    <h1>Edit Book</h1>
+
+    <form method="POST">
+        <label for="title">Title</label>
+        <input
+            type="text"
+            id="title"
+            name="title"
+            value="{{ title if title is defined else book.title }}"
+            required
+        >
+
+        <label for="author">Author</label>
+        <input
+            type="text"
+            id="author"
+            name="author"
+            value="{{ author if author is defined else book.author }}"
+            required
+        >
+
+        <label for="note">Note</label>
+        <textarea
+            id="note"
+            name="note"
+            rows="5"
+        >{{ note if note is defined else book.note or '' }}</textarea> 
+
+        <label for="status">Status</label>
+        {% set selected_status = status if status is defined else book.status %}
+
+        <select id="status" name="status" required>
+            <option value="">Select a status</option>
+
+            <option
+                value="Want to Read"
+                {% if selected_status == "Want to Read" %}selected{% endif%}
+            >
+                Want to Read
+            </option>
+
+            <option
+                value="Reading"
+                {% if selected_status == "Reading" %}selected{% endif%}
+            >
+                Reading
+            </option>
+
+            <option
+                value="Finished"
+                {% if selected_status == "Finished" %}selected{% endif%}
+            >
+                Finished
+            </option>
+        </select>
+
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <a href="{{ url_for('books') }}">Back to My Books</a>
+</section>
+{% endblock %}

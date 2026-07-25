@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Add Book | Shelf{% endblock %}
+
+{% block content %}
+<section class="form-container">
+    <h1>Add a Book</h1>
+
+    <form method="POST">
+        <label for="title">Title</label>
+        <input
+            type="text"
+            id="title"
+            name="title"
+            value="{{ title or '' }}"
+            required
+        >
+
+        <label for="author">Author</label>
+        <input
+            type="text"
+            id="author"
+            name="author"
+            value="{{ author or '' }}"
+            required
+        >
+
+        <label for="note">Note</label>
+        <textarea
+            id="note"
+            name="note"
+            rows="5"
+        >{{ note or '' }}</textarea>
+
+        <label for="status">Status</label>
+        <select id="status" name="status" required>
+            <option value="">Select a status</option>
+
+            <option
+                value="Want to Read"
+                {% if status == "Want to Read" %}selected{% endif %}
+            >
+                Want to Read
+            </option>
+
+            <option
+                value="Want to Read"
+                {% if status == "Want to Read" %}selected{% endif %}
+            >
+                Want to Read
+            </option>
+
+            <option
+                value="Reading"
+                {% if status == "Reading" %}selected{% endif %}
+            >
+                Reading
+            </option>
+
+            <option
+                value="Finished"
+                {% if status == "Finished" %}selected{% endif %}
+            >
+                Finished
+            </option>
+        </select>
+
+        <button type="submit">Add Book</button>
+    </form>
+
+    <a href="{{ url_for('books') }}">Back to My Books</a>
+</section>
+{% endblock %}
