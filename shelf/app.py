@@ -232,3 +232,7 @@ def delete_book(book_id):
 
     return redirect(url_for("books"))
 
+@app.route("/")
+def home():
+    return redirect(url_for("login"))
+
