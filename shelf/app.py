@@ -26,6 +26,9 @@ def load_user(user_id):
 with app.app_context():
     db.create_all()
 
+if __name__ == "__main__":
+    app.run(debug=True)
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if current_user.is_authenticated:
@@ -228,3 +231,4 @@ def delete_book(book_id):
     flash("Book deleted successfully.", "success")
 
     return redirect(url_for("books"))
+
