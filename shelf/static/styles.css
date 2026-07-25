@@ -1,0 +1,160 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8eedc;
+    color: #3f3f3f;
+}
+
+header{
+    background-color: #717e5d;
+    padding: 1rem 2rem;
+}
+
+nav{
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-links a{
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover{
+    text-decoration: underline;
+}
+
+.nav-links form{
+    margin: 0;
+}
+
+.nav-links button{
+    background-color: #e3bd8b;
+    color: #2f2f2f;
+    border: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.nav-links button:hover{
+    background-color: #f0ddc4;
+}
+
+main{
+    width: min(90%, 900px);
+    margin: 2rem auto;
+}
+
+h1, h2{
+    color: black;
+}
+
+.form-container{
+    max-width: 500px;
+    margin: 2rem auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+label{
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+input, textarea, select{
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
+    font: inherit;
+}
+
+button{
+    background-color: #82916b;
+    color: white;
+    border: none;
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #969f8b;
+}
+
+a{
+    color: #4e5b3c;
+}
+
+.book-card{
+    background-color: white;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #9aa979;
+    border-radius: 10px;
+}
+
+.book-card h2{
+    margin-top: 0;
+}
+
+.book-card form{
+    display: inline;
+    margin-left: 0.5rem;
+}
+
+.book-card button{
+    background-color: #be5e56;
+}
+
+.book-card button:hover{
+    background-color: #aa7a76;
+}
+
+.flash-messages{
+    margin-bottom: 1.5rem;
+}
+
+.flash{
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.flash.success{
+    background-color: #dce9d2;
+    color: #35502c;
+}
+
+.flash.error{
+    background-color: #f4d6d3;
+    color: #7d2f2a;
+}
